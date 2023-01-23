@@ -1,0 +1,65 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Winner", "DarkTheme")
+
+-- Main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+
+MainSection:NewButton("Tp Lava", "Tp to Lava jump", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-398.824524, 7036.50342, 199.018005, -0.978112519, 6.55857662e-08, -0.20807673, 6.99087437e-08, 1, -1.34221887e-08, 0.20807673, -2.76747922e-08, -0.978112519)
+end)
+
+
+MainSection:NewButton("Tp Sand", "It will tp you To sand tower", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-592.874329, 13279.8301, 213.060989, -0.999961615, -6.98635949e-09, 0.0087651806, -6.85698387e-09, 1, 1.47902446e-08, -0.0087651806, 1.4729574e-08, -0.999961615)
+end)
+
+
+
+MainSection:NewButton("Tp Winter", "It will tp you to Winter tower", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-979.395142, 36828.7891, 272.493195, -0.960750103, -3.11830561e-08, 0.277415246, -3.98108391e-08, 1, -2.54680117e-08, -0.277415246, -3.5512528e-08, -0.960750103)
+end)
+
+
+--Player
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+--Script
+PlayerSection:NewSlider("Speed", "Go zoom", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+PlayerSection:NewSlider("JumpPower", "Changes how fast you jump.", 250, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+
+
+PlayerSection:NewButton("Infinite Yield", "Give you infinite yield script.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+
+
+PlayerSection:NewToggle("Infinite Jump", "Lets you infinitely jump", function()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end)
+
+
+
+
+    -- Credits
+
+
+    local Credits = Window:NewTab("Credits")
+    local CreditsSection = Credits:NewSection("Credits")
+    
+        CreditsSection:NewLabel("Natfhkl")
